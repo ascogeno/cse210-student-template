@@ -5,7 +5,6 @@ As an additional test to see if this change is really being seen, here is a list
 
 
 
-
 This repository contains the starter code for many different projects. They are arranged as follows:
 
 * `sandbox` - An empty project that you can use to play around with any concepts you like.
