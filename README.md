@@ -1,5 +1,12 @@
 # cse210-student-template
-This is the starter code for students in CSE 210.
+This is a change made by Kyle Rosengren
+As an additional test to see if this change is really being seen, here is a list of warcrimes I have committed in the last 24 hours:
+
+
+
+
+
+
 
 This repository contains the starter code for many different projects. They are arranged as follows:
 
