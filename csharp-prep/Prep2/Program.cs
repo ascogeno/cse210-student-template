@@ -59,6 +59,14 @@ class Program
         {
             Letter = "an F";
         }
-        Console.Write($"Your grade is {Letter}");
+        Console.WriteLine($"Your grade is {Letter}");
+        if (Grade >= 70)
+        {
+            Console.WriteLine("Congrats! You passed!");
+        }
+        if (Grade < 70)
+        {
+            Console.WriteLine("Try better next time bud! We're not all destined for greatness");
+        }
     }
 }
