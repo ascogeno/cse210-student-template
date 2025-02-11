@@ -4,7 +4,11 @@ class Reference
 {
     private string refString;
 
-    public void SetReference(string reference)
+    public Reference()
+    {
+        refString = "";
+    }
+    public Reference(string reference)
     {
         refString = reference;
     }

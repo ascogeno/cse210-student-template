@@ -3,11 +3,17 @@ using System;
 class Word
 {
     private string currentWord;
-    private bool underScored = false;
+    private bool underScored;
 
-    public void SetWord(string word)
+    public Word()
+    {
+        currentWord = "";
+        underScored = false;
+    }
+    public Word(string word)
     {
         currentWord = word;
+        underScored = false;
     }
 
     public void GetRidOfCertainCharacters()
@@ -16,11 +22,11 @@ class Word
         {
             currentWord = "";
         }
-        if (currentWord.Substring(currentWord.Length - 1) == ".")
+        else if (currentWord.Substring(currentWord.Length - 1) == ".")
         {
             currentWord = currentWord.Substring(0, currentWord.Length - 1);
         }
-        if (currentWord.Substring(currentWord.Length - 1) == ";")
+        else if (currentWord.Substring(currentWord.Length - 1) == ";")
         {
             currentWord = currentWord.Substring(0, currentWord.Length - 1);
         }

@@ -10,14 +10,22 @@ class Scripture
     private List<string> impureList;
     private Random randy = new Random();
 
-    public void InitializeImpurities(string scriptText, string reference)
+    public Scripture()
+    {
+        refString = "";
+        _ref = new Reference();
+        verseList = new List<List<Word>>();
+        currentScripture = "";
+        impureList = new List<string>();
+    }
+
+    public Scripture(string scriptText, string reference)
     {
         currentScripture = scriptText;
         refString = reference;
         impureList = new List<string>(currentScripture.Split(" "));
         verseList = new List<List<Word>>();
-        _ref = new Reference();
-        _ref.SetReference(refString);
+        _ref = new Reference(refString);
         setList();
     }
 
@@ -77,8 +85,7 @@ class Scripture
                 continue; // Skip the number and move to the next word
             }
             // Create a Word object and set its value
-            Word wordObj = new Word();
-            wordObj.SetWord(impure);
+            Word wordObj = new Word(impure);
             currentVerse.Add(wordObj);
         }
     }
