@@ -10,8 +10,10 @@ class Scripture
     private List<string> impureList;
     private Random randy = new Random();
 
-    public void InitializeImpurities()
+    public void InitializeImpurities(string scriptText, string reference)
     {
+        currentScripture = scriptText;
+        refString = reference;
         impureList = new List<string>(currentScripture.Split(" "));
         verseList = new List<List<Word>>();
         _ref = new Reference();
@@ -42,7 +44,6 @@ class Scripture
         }
     }
 
-
     public void Remove()
     {
         int randomVerse, randomWord;
@@ -61,16 +62,6 @@ class Scripture
         }
     }
 
-
-    public void SetScripture(string scriptText)
-    {
-        currentScripture = scriptText;
-    }
-
-    public void SetReference(string reference)
-    {
-        refString = reference;
-    }
     public void setList() //don't hurt me. My idea for this function was too complex for my monkey brain, AI helped me with it
     {
         verseList.Clear(); // Start fresh
@@ -146,5 +137,4 @@ class Scripture
             }
         }
     }
-
 }

@@ -10,9 +10,7 @@ class Program
         string reference = "Proverbs 3:5-6";
         string scriptText = "5 Trust in the Lord with all thine heart; and lean not unto thine own understanding. 6 In all thy ways acknowledge him, and he shall direct thy paths.";
         //Just make sure to delete any "tabs" as seperators between verses
-        script.SetScripture(scriptText);
-        script.SetReference(reference);
-        script.InitializeImpurities();
+        script.InitializeImpurities(scriptText, reference);
         script.Display();
         Console.WriteLine("Press enter to continue or type 'quit' to finish:");
         string input = Console.ReadLine().ToLower();

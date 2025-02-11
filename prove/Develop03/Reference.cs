@@ -8,6 +8,7 @@ class Reference
     {
         refString = reference;
     }
+
     public string getReference()
     {
         return refString;
