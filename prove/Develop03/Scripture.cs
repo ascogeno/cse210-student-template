@@ -54,7 +54,7 @@ class Scripture
             randomVerse = GetRandomVerse();
             randomWord = GetRandomWord(randomVerse);
 
-            if (!verseList[randomVerse][randomWord].GetUnderScore())
+            if (!verseList[randomVerse][randomWord].GetUnderScore())//Checks if the word is underscored
             {
                 verseList[randomVerse][randomWord].SetUnderScore();
                 found = true;
