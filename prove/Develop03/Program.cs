@@ -14,12 +14,9 @@ class Program
         string reference3 = "Proverbs 21:19";
         string scriptText3 = "19 It is better to dwell in the wilderness, than with a contentious and an angry woman.";
         //Just make sure to delete any "tabs" as seperators between verses
-        Scripture script1 = new Scripture(scriptText1, reference1);
-        Scripture script2 = new Scripture(scriptText2, reference2);
-        Scripture script3 = new Scripture(scriptText3, reference3);
-        scriptures.Add(script1);
-        scriptures.Add(script2);
-        scriptures.Add(script3);
+        scriptures.Add(new Scripture(scriptText1, reference1));
+        scriptures.Add(new Scripture(scriptText2, reference2));
+        scriptures.Add(new Scripture(scriptText3, reference3));
         Scripture chosenOne = scriptures[GetRandomScripture()];
         chosenOne.Display();
         Console.WriteLine("Press enter to continue or type 'quit' to finish:");

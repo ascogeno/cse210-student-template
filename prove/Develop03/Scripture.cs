@@ -31,7 +31,6 @@ class Scripture
 
     public void Display()
     {
-        ProcessWords();
         Console.Write($"{_ref.getReference()}");
         int lastVerseIndex = verseList.Count - 1; // Get the index of the last verse
 
@@ -88,6 +87,7 @@ class Scripture
             Word wordObj = new Word(impure);
             currentVerse.Add(wordObj);
         }
+        ProcessWords();
     }
 
     public int GetRandomVerse()
