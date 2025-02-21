@@ -4,6 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Learning04 World!");
+        WritingAssignment stewey = new WritingAssignment("Mary Waters", "European History", "The Causes of World War II");
+        Console.WriteLine(stewey.GetSummary());
+        Console.WriteLine(stewey.GetWritingInformation());
     }
 }
