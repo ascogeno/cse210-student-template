@@ -3,7 +3,7 @@ using System;
 class Activity
 {
     private string _name; //base for welcome messsage, modified as needed by intro function
-    private int _duration; //stores the duration by the user. measured in seconds
+    protected int _duration; //stores the duration by the user. measured in seconds
     private string _welcome;
     public Activity()
     {
@@ -17,31 +17,78 @@ class Activity
         _duration = 0;
     }
 
-    public void GetDuration()
+    protected void GetDuration()
     {
         Console.WriteLine("How long, in seconds, would you like your session? ");
         _duration = Int32.Parse(Console.ReadLine());
     }
 
-    public string Animation()
+    protected void Animation(int secs)
     {
         //loops through these characters |\-/
-        return "";
+        DateTime futureTime = DateTime.Now.AddSeconds(secs);
+        while (DateTime.Now < futureTime)
+        {
+            Console.Write("|");
+            Thread.Sleep(500);
+            Console.Write("\b \b");
+            Console.Write("\\");
+            Thread.Sleep(500);
+            Console.Write("\b \b");
+            Console.Write("-");
+            Thread.Sleep(500);
+            Console.Write("\b \b");
+            Console.Write("/");
+            Thread.Sleep(500);
+            Console.Write("\b \b");
+        }
     }
 
-    public string GetReady()
+    public void CountDown(int secs)
+    {
+        int time = secs;
+        DateTime futureTime = DateTime.Now.AddSeconds(secs);
+        while (DateTime.Now < futureTime)
+        {
+            Console.Write(time);
+            time--;
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+        }
+        Console.Write("\n");
+    }
+
+    protected void GetReady()
     {
         //displays "Get ready..." before the activities. See demo video
-        return "";
+        Console.Clear();
+        DateTime futureTime = DateTime.Now.AddSeconds(5);
+        while (DateTime.Now < futureTime)
+        {
+            Console.Write("Get ready...\n");
+            Animation(5);
+        }
+        Console.Write("\n\n");
     }
 
-    public string WellDone()
+    protected void WellDone()
     {
         //displays ending message for each activity. See demo video
-        return "";
+        DateTime futureTime1 = DateTime.Now.AddSeconds(5);
+        DateTime futureTime2 = DateTime.Now.AddSeconds(10);
+        while (DateTime.Now < futureTime1)
+        {
+            Console.Write("Well Done!!\n");
+            Animation(5);
+        }
+        while (DateTime.Now < futureTime2)
+        {
+            Console.Write($"You have completed another {_duration} seconds of the {_name}\n");
+            Animation(5);
+        }
     }
 
-    private void Intro()
+    protected void Intro()
     {
         //displays intro message with each activty, changes depending on the one that calls it.
         SetIntro();
@@ -53,7 +100,7 @@ class Activity
     private void SetIntro()
     {
         string deets = "";
-        if (_name == "Breathing Activty")
+        if (_name == "Breathing Activity")
         {
             deets = "This Activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.";
         }
@@ -65,6 +112,6 @@ class Activity
         {
             deets = "This activity will hell you reflect on the good things in your life by having you list as many things as you can in a certain area.";
         }
-        _welcome = "Welcome to the" + _name + "\n\n" + deets;
+        _welcome = "Welcome to the " + _name + "\n\n" + deets + "\n";
     }
 }

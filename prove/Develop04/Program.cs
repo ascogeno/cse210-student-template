@@ -4,11 +4,12 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
         string choice = "";
         while (choice != "4")
         {
             Console.Clear();
-            Console.WriteLine("Menu Options:\n   1. Start breathing activity\n   2. Start reflection activity\n   3. Start listing activity\n   4. Quit\nSelect a choice from the menu: ");
+            Console.WriteLine("Menu Options:\n   1. Start breathing activity\n   2. Start reflection activity\n   3. Start listing activity\n   4. Quit\n   5. Secret Option\nSelect a choice from the menu: ");
             choice = Console.ReadLine();
             if (choice == "1")
             {
@@ -17,22 +18,23 @@ class Program
                 breth.Run();
             }
 
-            if (choice == "2")
+            else if (choice == "2")
             {
                 Reflection mirror = new Reflection();
                 Console.Clear();
                 mirror.Run();
             }
 
-            if (choice == "3")
+            else if (choice == "3")
             {
                 Listing list = new Listing();
                 Console.Clear();
                 list.Run();
             }
 
-            if (choice == "5")
+            else if (choice == "5")
             {
+                Console.Clear();
                 Console.WriteLine(@"
 ⡏⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⣉⣩⣭⣉⣉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉
 ⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡴⠋⢁⣀⠀⣀⡈⠙⢢⡀⠀⠒⠒⠂⣀⡤⠖⠒⠒⠒⠢⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -68,9 +70,12 @@ class Program
 ⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠁⠀⠀⠀⠀⠀⠀⠀⢘⣿⠧⠀⠀⠀⠀⠀⠀⠒⠛⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⡿⠀⠀⠀⢀⣸⣥⡤⠶⠒⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⣇⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣠⣭⣥⣽⣶⣿⣿⣷⣦⣤⣤⣤⣤⣤⣦⣄⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀");
+                Console.WriteLine("Kermit says hi!");
+                Thread.Sleep(5000);
+                choice = "4";
             }
 
-            if (choice != "1" || choice != "2" || choice != "3" || choice != "4" || choice != "5")
+            if (choice != "1" && choice != "2" && choice != "3" && choice != "4" && choice != "5")
             {
                 Console.WriteLine("Please enter a valid numer");
             }
