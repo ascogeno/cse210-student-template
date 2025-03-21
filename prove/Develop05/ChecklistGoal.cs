@@ -104,6 +104,7 @@ class ChecklistGoal : Goal
     public override int GetGoalPoint()
     {
         //adjust logic so that total completed/goal gives bonus. if goal is 3, every 3 bonus points should be awarded
+        //fix logic so that points aren't multiplied a lot
         int markiplier = completed / totalToComplete;
         return points + (markiplier * finishPoint);
     }

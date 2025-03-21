@@ -35,7 +35,7 @@ class SimpleGoal : Goal
         Console.Write("Which attribute would you like to edit? ");
         string toEdit = Console.ReadLine();
         switch (toEdit)
-        {
+        { 
             case "1":
                 Console.Write("Enter the new name: ");
                 name = Console.ReadLine();

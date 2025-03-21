@@ -23,7 +23,7 @@ class ETGoal : Goal
             description = parts[2];
             points = point;
         }
-    }
+    } 
 
     public override void Edit()
     {
