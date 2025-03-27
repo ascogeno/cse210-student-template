@@ -11,8 +11,18 @@ class Customer
         addy = new Address(address);
     }
 
+    public string GetName()
+    {
+        return _cName;
+    }
+
     public bool IsUSA()
     {
-        return false;
+        return addy.IsUSA();
+    }
+
+    public string GetFullDetails()
+    {
+        return addy.fullDetails();
     }
 }

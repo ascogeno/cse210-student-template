@@ -1,31 +1,63 @@
 using System;
+using System.Numerics;
 
 class Order
 {
     private List<Product> products = new List<Product>();
-    private Customer custom = new Customer();
-    public Order()
+    private Customer custom;
+    public Order(string name, string address)
     {
+        custom = new Customer(name, address);
+    }
 
+    public void AddProduct(string name, int id, int price, int quant)
+    {
+        products.Add(new Product(name, id, price, quant));
     }
 
     public int GetOrderTotal()
     {
-        return 0;
+        if (products.Count == 0)
+        {
+            return 0;
+        }
+        else
+        {
+            int total = 0;
+            foreach (Product prod in products)
+            {
+                total += prod.GetTotal();
+            }
+            return total + GetShipping();
+        }
+
     }
 
     public int GetShipping()
     {
-        return 0;
+        if (custom.IsUSA())
+        {
+            return 5;
+        }
+        else
+        {
+            return 35;
+        }
     }
 
-    public string GetPackingLabel()
+    public void GetPackingLabel()
     {
-        return "";
+        Console.WriteLine($"Packing Label for: {custom.GetName()}");
+        Console.WriteLine("Product IDs: ");
+        foreach (Product prod in products)
+        {
+            Console.Write($"{prod.GetId()} ");
+        }
+        Console.WriteLine("");
     }
 
-    public string GetShippingLabel()
+    public void GetShippingLabel()
     {
-        return "";
+        Console.WriteLine($"Shipping Label for: {custom.GetName()}, {custom.GetFullDetails()}");
     }
 }
